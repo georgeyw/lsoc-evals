@@ -24,8 +24,9 @@ for model in MODELS:
         log_samples=True,
         write_out=True,
         device=DEVICE,
+        limit=100,
     )
-    object_name = f'{model}_evals_1.pkl'
+    object_name = f'{model}_evals_test.pkl'
     push_pickle_to_s3(data=results, object_name=object_name)
 
 
