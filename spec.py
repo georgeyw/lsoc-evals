@@ -29,6 +29,12 @@ TASKS = [
     'social_iqa',
 ]
 
-TASKS = [
-    'gpqa'
-]
+# test setup with limit=10
+
+# MODELS = [
+#     "EleutherAI/pythia-14m",
+#     # "mistralai/Mistral-7B-v0.1",
+# ]
+# TASKS = [
+#     'gpqa'
+# ]

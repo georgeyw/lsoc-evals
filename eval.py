@@ -28,10 +28,9 @@ for model_name in MODELS:
         log_samples=True,
         write_out=True,
         device=DEVICE,
-        limit=10,
     )
     model_name = model_name.replace('/', '-')
-    object_name = f'{model_name}_evals_test.pkl'
+    object_name = f'{model_name}_evals_1.pkl'
     push_pickle_to_s3(data=results, object_name=object_name)
 
 
