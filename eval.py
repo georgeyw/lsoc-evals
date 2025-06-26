@@ -24,7 +24,7 @@ print(MODELS[GPU_ID])
 
 # Run evaluations
 for model_name in MODELS[GPU_ID]:
-    model = lm_eval.models.huggingface.HFLM(pretrained=model_name)
+    model = lm_eval.models.huggingface.HFLM(pretrained=model_name, trust_remote_code=True)
     results = evaluator.simple_evaluate(
         model=model,
         tasks=TASKS_1,
