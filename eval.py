@@ -9,7 +9,7 @@ from huggingface_hub import login
 from lm_eval import evaluator
 
 from s3 import push_pickle_to_s3
-from spec import MODELS, TASKS, GPU_ID, CHAT_TEMPLATE
+from spec import MODELS, TASKS_1, GPU_ID, CHAT_TEMPLATE
 
 
 assert GPU_ID is not None
@@ -27,7 +27,7 @@ for model_name in MODELS[GPU_ID]:
     model = lm_eval.models.huggingface.HFLM(pretrained=model_name)
     results = evaluator.simple_evaluate(
         model=model,
-        tasks=TASKS,
+        tasks=TASKS_1,
         batch_size="auto",
         log_samples=True,
         write_out=True,
