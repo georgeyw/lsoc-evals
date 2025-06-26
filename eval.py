@@ -19,8 +19,8 @@ login(token=os.getenv('HF_API_KEY'))
 
 
 # Run evaluations
-for model in MODELS:
-    model = lm_eval.models.huggingface.HFLM(pretrained=model)
+for model_name in MODELS:
+    model = lm_eval.models.huggingface.HFLM(pretrained=model_name)
     results = evaluator.simple_evaluate(
         model=model,
         tasks=TASKS,
@@ -28,9 +28,10 @@ for model in MODELS:
         log_samples=True,
         write_out=True,
         device=DEVICE,
-        limit=100,
+        limit=10,
     )
-    object_name = f'{model}_evals_test.pkl'
+    model_name = model_name.replace('/', '-')
+    object_name = f'{model_name}_evals_test.pkl'
     push_pickle_to_s3(data=results, object_name=object_name)
 
 
