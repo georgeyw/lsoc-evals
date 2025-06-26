@@ -1,3 +1,7 @@
+from dotenv import load_dotenv
+
+load_dotenv('./.env')
+
 import os
 import lm_eval
 
@@ -15,8 +19,8 @@ login(token=os.getenv('HF_API_KEY'))
 
 
 # Run evaluations
-for model in MODELS:
-    model = lm_eval.models.huggingface.HFLM(pretrained=model)
+for model_name in MODELS:
+    model = lm_eval.models.huggingface.HFLM(pretrained=model_name)
     results = evaluator.simple_evaluate(
         model=model,
         tasks=TASKS,
@@ -25,7 +29,8 @@ for model in MODELS:
         write_out=True,
         device=DEVICE,
     )
-    object_name = f'{model}_evals_1.pkl'
+    model_name = model_name.replace('/', '-')
+    object_name = f'{model_name}_evals_1.pkl'
     push_pickle_to_s3(data=results, object_name=object_name)
 
 

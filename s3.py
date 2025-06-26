@@ -5,7 +5,7 @@ from botocore.exceptions import NoCredentialsError
 
 
 BUCKET = 'devinterp-language'
-TEMP_FILE = '/content/temp_file.pkl'
+TEMP_FILE = './temp_file.pkl'
 
 
 def upload_file_to_s3(file_name, bucket, object_name=None):

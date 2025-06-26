@@ -1,5 +1,5 @@
 MODELS = [
-    "EleutherAI/pythia-70m",
+    "EleutherAI/pythia-14m",
     # "mistralai/Mistral-7B-v0.1",
 ]
 
@@ -28,3 +28,13 @@ TASKS = [
     'toxigen',
     'social_iqa',
 ]
+
+# test setup with limit=10
+
+# MODELS = [
+#     "EleutherAI/pythia-14m",
+#     # "mistralai/Mistral-7B-v0.1",
+# ]
+# TASKS = [
+#     'gpqa'
+# ]
