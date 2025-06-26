@@ -1,3 +1,5 @@
+GPU_ID = None
+
 CHAT_TEMPLATE = {
     '01-ai/Yi-6B': False,
     '01-ai/Yi-6B-Chat': True,
