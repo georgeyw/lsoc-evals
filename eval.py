@@ -19,6 +19,8 @@ DEVICE = 'cuda'
 os.environ['HF_TOKEN'] = os.getenv('HF_API_KEY')
 login(token=os.getenv('HF_API_KEY'))
 
+print(GPU_ID)
+print(MODELS[GPU_ID])
 
 # Run evaluations
 for model_name in MODELS[GPU_ID]:
@@ -35,5 +37,4 @@ for model_name in MODELS[GPU_ID]:
     model_name = model_name.replace('/', '-')
     object_name = f'{model_name}_task_list_1.pkl'
     push_pickle_to_s3(data=results, object_name=object_name)
-
 
