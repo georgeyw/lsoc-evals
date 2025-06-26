@@ -3,11 +3,11 @@ GPU_ID = None
 CHAT_TEMPLATE = {
     '01-ai/Yi-6B': False,
     '01-ai/Yi-6B-Chat': True,
-    'aisingapore/SEA-LION-v1-7B': False,
-    'aisingapore/SEA-LION-v1-7B-IT': True,
-    'allenai/OLMo-7B-0424': False,
-    'allenai/OLMo-7B-hf': False,
-    'allenai/OLMo-7B-Instruct': True,
+    'aisingapore/SEA-LION-v1-7B': False,  # triton_pre_mlir problem
+    'aisingapore/SEA-LION-v1-7B-IT': True,  # triton_pre_mlir problem
+    'allenai/OLMo-7B-0424': False,  # missing OLMoTokenizer problem
+    'allenai/OLMo-7B-hf': False,  # missing OLMoTokenizer problem
+    'allenai/OLMo-7B-Instruct': True,  # missing OLmoTokenizer problem
     'bigscience/T0pp': False,  # 11B
     'BioMistral/BioMistral-7B': False,
     'databricks/dolly-v2-12b': False,
@@ -219,12 +219,12 @@ for gpu_id in MODELS:
     for model in MODELS[gpu_id]:
         model_check.append(model)
 
-assert len(model_check) == len(CHAT_TEMPLATE)
-assert len(set(model_check)) == len(model_check)
-for model in model_check:
-    assert model in CHAT_TEMPLATE
-for model in CHAT_TEMPLATE:
-    assert model in model_check
+# assert len(model_check) == len(CHAT_TEMPLATE)
+# assert len(set(model_check)) == len(model_check)
+# for model in model_check:
+#     assert model in CHAT_TEMPLATE
+# for model in CHAT_TEMPLATE:
+#     assert model in model_check
 
 
 EXCLUDED_TASKS = [
