@@ -30,7 +30,7 @@ CHAT_TEMPLATE = {
     'google/gemma-2-9b': False,
     'google/gemma-2-9b-it': True,
     'google/gemma-2b': False,
-    'google/gemma-2b-it': False,
+    'google/gemma-2b-it': True,
     'google/gemma-7b': False,
     'google/gemma-7b-it': True,
     'ibm-granite/granite-3.1-2b-base': False,
@@ -88,28 +88,28 @@ MODELS = {
         'scb10x/llama-3-typhoon-v1.5-8b-instruct',
     ], # 14B
     'H100_3': [
-        'aisingapore/SEA-LION-v1-7B',
+        # 'aisingapore/SEA-LION-v1-7B',
         'scb10x/typhoon-7b',
     ], # 14B
     'H100_4': [
-        'aisingapore/SEA-LION-v1-7B-IT',
+        # 'aisingapore/SEA-LION-v1-7B-IT',
         'stabilityai/stablelm-base-alpha-7b'
     ], # 14B
     'H100_5': [
-        'allenai/OLMo-7B-0424',
+        # 'allenai/OLMo-7B-0424',
         'tiiuae/falcon-7b',
     ], # 14B
     'H100_6': [
-        'allenai/OLMo-7B-hf',
+        # 'allenai/OLMo-7B-hf',
         'tiiuae/falcon-7b-instruct'
     ], # 14B
     'H100_7': [
-        'allenai/OLMo-7B-Instruct',
+        # 'allenai/OLMo-7B-Instruct',
+        'google/gemma-2b',
         'EleutherAI/pythia-70m',
     ], # 7B
     'H100_8': [
         'BioMistral/BioMistral-7B',
-        'google/gemma-2b',
     ], # 9B
     'H100_9': [
         'databricks/dolly-v2-7b',
@@ -148,7 +148,7 @@ MODELS = {
         'meta-llama/Llama-3.2-1B-Instruct'
     ], # 8B
     'H100_18': [
-        'google/gemma-7b-it',
+        'google/gemma-7b-it',  # Failed to apply chat template. removing the system role in chat history.
         'meta-llama/Llama-3.2-3B'
     ], # 10B
     'H100_19': [
