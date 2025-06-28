@@ -50,11 +50,11 @@ CHAT_TEMPLATE = {
     'microsoft/phi-2': False,  # 3B
     'microsoft/Phi-3-medium-4k-instruct': True,  # 14B
     'microsoft/Phi-3-small-8k-instruct': True,  # 7B
-    'microsoft/Phi-3.5-mini-instruct': True,  # 4B
+    'microsoft/Phi-3.5-mini-instruct': True,  # 4B  # Errored out due to some DynamicCache issue? No attribute "get_max_length", did you mean "get_seq_length"?
     'mistralai/Mistral-7B-Instruct-v0.3': True,
     'mistralai/Mistral-7B-v0.1': False,
     'mistralai/Mistral-Nemo-Base-2407': False,  # 12B
-    'mosaicml/mpt-7b': False,
+    'mosaicml/mpt-7b': False,  # triton_pre_mlir problem
     'Qwen/Qwen-7B': False,
     'Qwen/Qwen1.5-14B': False,
     'Qwen/Qwen1.5-14B-Chat': True,
@@ -69,7 +69,7 @@ CHAT_TEMPLATE = {
     'stabilityai/stablelm-base-alpha-3b': False,
     'stabilityai/stablelm-base-alpha-7b': False,
     'tiiuae/falcon-7b': False,
-    'tiiuae/falcon-7b-instruct': True,
+    'tiiuae/falcon-7b-instruct': True,  # some problem with assert len(continuation_enc) > 0
 }
 
 
@@ -253,6 +253,11 @@ TASKS_1 = [
     'logiqa2',
     'toxigen',
     'social_iqa',
+]
+
+TASKS_2 = [
+    'bigbench_multiple_choice_a',
+    'bigbench_multiple_choice_b',
 ]
 
 
