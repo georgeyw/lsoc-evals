@@ -3,11 +3,11 @@ GPU_ID = None
 CHAT_TEMPLATE = {
     '01-ai/Yi-6B': False,
     '01-ai/Yi-6B-Chat': True,
-    'aisingapore/SEA-LION-v1-7B': False,  # triton_pre_mlir problem
-    'aisingapore/SEA-LION-v1-7B-IT': True,  # triton_pre_mlir problem
-    'allenai/OLMo-7B-0424': False,  # missing OLMoTokenizer problem
-    'allenai/OLMo-7B-hf': False,  # missing OLMoTokenizer problem
-    'allenai/OLMo-7B-Instruct': True,  # missing OLmoTokenizer problem
+    # 'aisingapore/SEA-LION-v1-7B': False,  # triton_pre_mlir problem
+    # 'aisingapore/SEA-LION-v1-7B-IT': True,  # triton_pre_mlir problem
+    # 'allenai/OLMo-7B-0424': False,  # missing OLMoTokenizer problem
+    # 'allenai/OLMo-7B-hf': False,  # missing OLMoTokenizer problem
+    # 'allenai/OLMo-7B-Instruct': True,  # missing OLmoTokenizer problem
     'bigscience/T0pp': False,  # 11B
     'BioMistral/BioMistral-7B': False,
     'databricks/dolly-v2-12b': False,
@@ -32,7 +32,7 @@ CHAT_TEMPLATE = {
     'google/gemma-2b': False,
     'google/gemma-2b-it': True,
     'google/gemma-7b': False,
-    'google/gemma-7b-it': True,
+    'google/gemma-7b-it': True,   # Failed to apply chat template. removing the system role in chat history.
     'ibm-granite/granite-3.1-2b-base': False,
     'ibm-granite/granite-3.1-2b-instruct': True,
     'ibm-granite/granite-3.1-8b-base': False,
@@ -50,12 +50,12 @@ CHAT_TEMPLATE = {
     'microsoft/phi-2': False,  # 3B
     'microsoft/Phi-3-medium-4k-instruct': True,  # 14B
     'microsoft/Phi-3-small-8k-instruct': True,  # 7B
-    'microsoft/Phi-3.5-mini-instruct': True,  # 4B
+    # 'microsoft/Phi-3.5-mini-instruct': True,  # 4B  # Errored out due to some DynamicCache issue? No attribute "get_max_length", did you mean "get_seq_length"?
     'mistralai/Mistral-7B-Instruct-v0.3': True,
     'mistralai/Mistral-7B-v0.1': False,
     'mistralai/Mistral-Nemo-Base-2407': False,  # 12B
-    'mosaicml/mpt-7b': False,
-    'Qwen/Qwen-7B': False,
+    # 'mosaicml/mpt-7b': False,  # triton_pre_mlir problem
+    # 'Qwen/Qwen-7B': False,  # errored with something like argument 'tokens': 'NoneType' cannot be converted to 'Sequence'
     'Qwen/Qwen1.5-14B': False,
     'Qwen/Qwen1.5-14B-Chat': True,
     'Qwen/Qwen1.5-7B': False,
@@ -69,7 +69,7 @@ CHAT_TEMPLATE = {
     'stabilityai/stablelm-base-alpha-3b': False,
     'stabilityai/stablelm-base-alpha-7b': False,
     'tiiuae/falcon-7b': False,
-    'tiiuae/falcon-7b-instruct': True,
+    # 'tiiuae/falcon-7b-instruct': True,  # some problem with assert len(continuation_enc) > 0
 }
 
 
@@ -101,7 +101,7 @@ MODELS = {
     ], # 14B
     'H100_6': [
         # 'allenai/OLMo-7B-hf',
-        'tiiuae/falcon-7b-instruct'
+        # 'tiiuae/falcon-7b-instruct'
     ], # 14B
     'H100_7': [
         # 'allenai/OLMo-7B-Instruct',
@@ -148,7 +148,7 @@ MODELS = {
         'meta-llama/Llama-3.2-1B-Instruct'
     ], # 8B
     'H100_18': [
-        'google/gemma-7b-it',  # Failed to apply chat template. removing the system role in chat history.
+        'google/gemma-7b-it',
         'meta-llama/Llama-3.2-3B'
     ], # 10B
     'H100_19': [
@@ -205,7 +205,7 @@ MODELS = {
     ], # 15B
     'H200_11': [
         'Qwen/Qwen1.5-14B',
-        'Qwen/Qwen-7B',
+        # 'Qwen/Qwen-7B',
     ], # 21B
     'H200_12': [
         'Qwen/Qwen1.5-14B-Chat',
@@ -253,6 +253,11 @@ TASKS_1 = [
     'logiqa2',
     'toxigen',
     'social_iqa',
+]
+
+TASKS_2 = [
+    'bigbench_multiple_choice_a',
+    'bigbench_multiple_choice_b',
 ]
 
 
